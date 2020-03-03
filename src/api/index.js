@@ -35,9 +35,21 @@ export const authenticate = (data, next) => {
     }
 }
 
+export const signout = (next) => {
+    if (typeof window !== 'undefined'){
+        localStorage.removeItem('jwt')
+        next()
+        return fetch(`${API}/signout`, {
+            method: "GET"
+        }).then(response => {
+            console.log('signout', response)
+        }).catch(err => console.log(err))
+    }
+}
+
 export const getAllJobs = () => {
-    console.log(process.env.REACT_APP_API_URL)
-    console.log(API)
+    // console.log(process.env.REACT_APP_API_URL)
+    // console.log(API)
     return fetch(`${API}/jobsAll`, {
         method: "GET"
     }).then(response => {
@@ -49,7 +61,7 @@ export const createJob = (token, job) => {
     return fetch(`${API}/jobs`, {
         method: "POST",
         headers: {
-            Accept: "application/json",
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
         body: JSON.stringify(job)

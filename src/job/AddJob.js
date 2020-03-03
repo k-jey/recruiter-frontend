@@ -10,9 +10,7 @@ const CreateJob = () => {
         description: '',
         loading: false,
         error: '',
-        createdJob: '',
-        redirecttToProfile: false,
-        success: false
+        createdJob: ''
     })
 
     const { user, token } = isAuthentcated()
@@ -22,9 +20,7 @@ const CreateJob = () => {
         description,
         loading,
         error,
-        createdJob,
-        redirecttToProfile,
-        success
+        createdJob
     } = values
 
     const handleChange = name => event => {

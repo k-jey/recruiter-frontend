@@ -89,7 +89,7 @@ const Signin = () => {
     return (
         <Layout 
             title="Signin Page" 
-            description="Signin to E-commerce App" 
+            description="Signin to Recruiter Page" 
             className="container col-md-8 offset-md-2"
         >
             {showLoading()}

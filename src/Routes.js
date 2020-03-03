@@ -1,6 +1,8 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Signin from './user/Signin'
+import AdminRoute from './api/AdminRoute'
+import AdminDashboard from './user/AdminDashboard'
 import AddJob from './job/AddJob'
 import Home from './core/Home'
 
@@ -10,7 +12,8 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/signin" exact component={Signin}/>
-                <Route path="/addJob" exact component={AddJob}/>
+                <AdminRoute path="/admin/dashboard" exact component={AdminDashboard}/>
+                <AdminRoute path="/addJob" exact component={AddJob}/>
             </Switch>
         </BrowserRouter>
     )
